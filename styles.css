@@ -13,3 +13,7 @@ footer {
     margin-top: 20px;
     font-size: 14px;
 }
+img.logo {
+    max-width: 200px;
+    height: auto;
+}
