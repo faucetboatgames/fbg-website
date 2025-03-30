@@ -125,7 +125,7 @@ const gameStore = useGameStore()
   padding: 4rem 0;
   text-align: center;
   background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.4)), 
-              url('https://placehold.co/1920x1080/1A237E/ffffff?text=Faucet+Boat+Games') center/cover;
+              center/cover;
   
   .logo {
     display: flex;
