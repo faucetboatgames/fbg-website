@@ -34,6 +34,9 @@ jobs:
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
 
+      - name: Create CNAME file
+        run: echo "faucetboatgames.com" > dist/CNAME
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
