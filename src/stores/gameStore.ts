@@ -22,7 +22,7 @@ export const useGameStore = defineStore('games', {
         title: 'Rhythm Raiders',
         description: 'A music-based dungeon crawler where your attacks and movements sync with the beat. Explore procedurally generated dungeons with a soundtrack that adapts to your play style.',
         status: 'launched',
-        playUrl: 'https://rhythem-raiders.faucetboatgames.com',
+        playUrl: 'https://rhythm-raiders.faucetboatgames.com',
         thumbnailUrl: 'https://placehold.co/600x400/9C27B0/ffffff?text=Rhythm+Raiders',
         bannerUrl: 'https://placehold.co/1200x400/9C27B0/ffffff?text=Rhythm+Raiders',
         features: ['Rhythm-Based Combat', 'Dynamic Soundtrack', 'Procedural Dungeons'],
