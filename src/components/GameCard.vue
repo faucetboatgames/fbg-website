@@ -30,7 +30,16 @@
             Expected: {{ game.releaseDate }}
           </div>
         </div>
-        <button class="btn-details">Learn More</button>
+        <div class="card-actions">
+          <a v-if="showPlayButton && game.playUrl" 
+             :href="game.playUrl" 
+             target="_blank"
+             class="btn-play" 
+             @click.stop>
+            🚀 Play Now
+          </a>
+          <button class="btn-details" v-else>Learn More</button>
+        </div>
       </div>
     </div>
   </div>
@@ -42,6 +51,7 @@ import type { Game } from '@/types/Game'
 
 defineProps<{
   game: Game
+  showPlayButton?: boolean
 }>()
 
 const showDetails = ref(false)
@@ -198,8 +208,12 @@ const toggleDetails = () => {
       }
     }
     
+    .card-actions {
+      display: flex;
+      justify-content: center;
+    }
+    
     .btn-details {
-      align-self: center;
       padding: 0.75rem 1.5rem;
       background-color: var(--color-secondary);
       color: var(--color-text);
@@ -211,6 +225,26 @@ const toggleDetails = () => {
       &:hover {
         background-color: var(--color-accent);
         transform: translateY(-2px);
+      }
+    }
+    
+    .btn-play {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(45deg, #4CAF50, #8BC34A);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        background: linear-gradient(45deg, #66BB6A, #9CCC65);
       }
     }
   }
