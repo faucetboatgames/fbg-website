@@ -25,7 +25,7 @@ It's as simple—and as diabolical—as that.
 ## 🌐 The Website Awakens (But Not the Bear)
 
 Alongside the launch, the mighty, all-agentic coder team at Faucet Boat Games has leveled up the official website:
-👉 https://faucetboatgames.com
+👉 [faucetboatgames.com](/)
 
 The site now shines brighter than a neon billboard at 2AM, with updates showcasing Snooze and linking back to FBG's debut cult hit, **Rhythm Raiders**—the rhythm-action caper that made players dance, dodge, and occasionally question their sense of timing.
 
@@ -41,4 +41,4 @@ So, brave players, grab your headphones, steady your nerves, and prepare for the
 **Play Snooze now**, and if you somehow survive the silence, revisit **Rhythm Raiders** for a dance-fueled cooldown.
 
 **Snooze is live today at:**  
-👉 https://faucetboatgames.com
+👉 [faucetboatgames.com](/)

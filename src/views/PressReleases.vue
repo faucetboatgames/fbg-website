@@ -89,6 +89,7 @@ const formatContent = (content: string) => {
   return content
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="press-link">$1</a>')
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
     .replace(/^# (.*$)/gim, '<h1>$1</h1>')
     .replace(/👉 (.*$)/gim, '<div class="call-to-action">👉 $1</div>')
@@ -286,6 +287,17 @@ const formatContent = (content: string) => {
     
     :deep(em) {
       color: var(--color-secondary, #B39DDB);
+    }
+    
+    :deep(.press-link) {
+      color: var(--color-accent, #7C4DFF);
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #FFD700;
+      }
     }
   }
 }
