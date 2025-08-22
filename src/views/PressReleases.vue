@@ -60,7 +60,10 @@ import { usePressReleaseStore } from '@/stores/pressReleaseStore'
 const pressReleaseStore = usePressReleaseStore()
 const expandedReleases = ref<Set<string>>(new Set())
 
-onMounted(() => {
+onMounted(async () => {
+  // Load press releases from markdown files
+  await pressReleaseStore.loadReleases()
+  
   // Auto-expand the first (latest) release
   const latestRelease = pressReleaseStore.getLatestRelease
   if (latestRelease) {
