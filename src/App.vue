@@ -18,28 +18,49 @@
       <section class="featured-game">
         <div class="container">
           <div class="featured-content">
+            <div class="featured-badge">🎮 Latest Launch</div>
             <h2>Featured Game</h2>
-            <h3>{{ gameStore.getCurrentGames[0].title }}</h3>
-            <p>{{ gameStore.getCurrentGames[0].description }}</p>
-            <button class="btn">Learn More</button>
+            <h3>{{ gameStore.getFeaturedGame.title }}</h3>
+            <p>{{ gameStore.getFeaturedGame.description }}</p>
+            <div class="featured-actions">
+              <a :href="gameStore.getFeaturedGame.playUrl" class="btn btn-primary" target="_blank">
+                🚀 Play Now
+              </a>
+              <button class="btn btn-secondary">Learn More</button>
+            </div>
           </div>
           <div class="featured-image">
-            <img :src="gameStore.getCurrentGames[0].bannerUrl" :alt="gameStore.getCurrentGames[0].title">
+            <img :src="gameStore.getFeaturedGame.bannerUrl" :alt="gameStore.getFeaturedGame.title">
           </div>
         </div>
       </section>
       
       <section class="game-sections">
         <div class="container">
-          <CollapsibleSection title="Current Games">
-            <div class="hexagon-grid">
-              <div v-for="game in gameStore.getCurrentGames" :key="game.id" class="hexagon-item">
+          <CollapsibleSection title="🎮 Available to Play" class="launched-section">
+            <div class="launched-grid">
+              <a v-for="game in gameStore.getLaunchedGames" 
+                 :key="game.id" 
+                 :href="game.playUrl" 
+                 target="_blank" 
+                 class="launched-item-link">
+                <div class="launched-item">
+                  <GameCard :game="game" :showPlayButton="true" />
+                </div>
+              </a>
+            </div>
+          </CollapsibleSection>
+          
+          <CollapsibleSection title="🔧 In Development" class="development-section">
+            <div class="development-grid">
+              <div v-for="game in gameStore.getDevelopmentGames" :key="game.id" class="development-item">
+                <div class="status-badge development">In Development</div>
                 <GameCard :game="game" />
               </div>
             </div>
           </CollapsibleSection>
           
-          <CollapsibleSection title="Upcoming Games">
+          <CollapsibleSection title="🚀 Coming Soon" class="upcoming-section">
             <div class="timeline">
               <div v-for="game in gameStore.getUpcomingGames" :key="game.id" class="timeline-item">
                 <div class="timeline-marker">
@@ -154,7 +175,7 @@ const gameStore = useGameStore()
 
 .featured-game {
   padding: 4rem 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.3), rgba(107, 70, 193, 0.2));
   
   .container {
     display: grid;
@@ -168,6 +189,18 @@ const gameStore = useGameStore()
   }
   
   .featured-content {
+    .featured-badge {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--color-accent), #FF6B6B);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+    
     h2 {
       color: var(--color-secondary);
       margin-bottom: 1rem;
@@ -181,6 +214,12 @@ const gameStore = useGameStore()
     p {
       margin-bottom: 2rem;
     }
+    
+    .featured-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
   }
   
   .featured-image {
@@ -188,12 +227,162 @@ const gameStore = useGameStore()
       width: 100%;
       border-radius: 8px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &.btn-primary {
+    background: linear-gradient(45deg, var(--color-accent), #FF6B6B);
+    color: white;
+    box-shadow: 0 4px 15px rgba(var(--color-accent), 0.4);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(var(--color-accent), 0.6);
+    }
+  }
+  
+  &.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    border: 2px solid var(--color-secondary);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--color-accent);
     }
   }
 }
 
 .game-sections {
   padding: 4rem 0;
+}
+
+.launched-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.launched-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  
+  .launched-item {
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+    
+    &::before {
+      content: '🎮 CLICK TO PLAY';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: linear-gradient(45deg, #4CAF50, #8BC34A);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+.development-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  
+  .development-item {
+    position: relative;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+.status-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 2;
+  
+  &.development {
+    background: linear-gradient(45deg, #FF9800, #FFC107);
+    color: white;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
 }
 
 .hexagon-grid {
