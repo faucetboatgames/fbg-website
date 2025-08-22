@@ -115,6 +115,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useGameStore } from '@/stores/gameStore'
 import { usePressReleaseStore } from '@/stores/pressReleaseStore'
 import CollapsibleSection from '@/components/CollapsibleSection.vue'
@@ -122,6 +123,11 @@ import GameCard from '@/components/GameCard.vue'
 
 const gameStore = useGameStore()
 const pressReleaseStore = usePressReleaseStore()
+
+onMounted(async () => {
+  // Load press releases from markdown files
+  await pressReleaseStore.loadReleases()
+})
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {

@@ -50,3 +50,11 @@ Each game follows the `Game` interface with properties: id, title, description, 
 
 ### Static Site Deployment
 The site is configured for static deployment with `base: './'` in vite.config.ts and includes a CNAME file for GitHub Pages deployment.
+
+### Press Releases System
+Press releases are managed through a build-time system:
+- **Source files**: `/press-releases/*.md` - Markdown files with YAML frontmatter
+- **Generated data**: `src/data/press-releases.ts` - Auto-generated TypeScript data
+- **Documentation**: `docs/press-releases.md` - How to add new press releases
+- **Build process**: Automatically converts markdown files to structured data for static deployment
+- **Routes**: Home page shows latest release preview, `/press-releases` shows full list with expandable content
