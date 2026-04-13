@@ -11,8 +11,8 @@ export const useGameStore = defineStore('games', {
         description: 'Can you keep a sleepy bear dreaming for a full minute? Master the art of noise management in this thrilling arcade challenge where every sound matters and silence is your greatest weapon.',
         status: 'launched',
         playUrl: 'https://snooze.faucetboatgames.com',
-        thumbnailUrl: 'https://placehold.co/600x400/6B46C1/ffffff?text=Snooze',
-        bannerUrl: 'https://placehold.co/1200x400/6B46C1/ffffff?text=Snooze',
+        thumbnailUrl: './snooze-tile.svg',
+        bannerUrl: './snooze-tile.svg',
         features: ['Noise Management', 'Time Pressure', 'Relaxing Theme'],
         platforms: ['Web', 'PC', 'Mobile'],
         genre: ['Arcade', 'Casual']
@@ -23,8 +23,8 @@ export const useGameStore = defineStore('games', {
         description: 'A music-based dungeon crawler where your attacks and movements sync with the beat. Explore procedurally generated dungeons with a soundtrack that adapts to your play style.',
         status: 'launched',
         playUrl: 'https://rhythm-raiders.faucetboatgames.com',
-        thumbnailUrl: 'https://placehold.co/600x400/9C27B0/ffffff?text=Rhythm+Raiders',
-        bannerUrl: 'https://placehold.co/1200x400/9C27B0/ffffff?text=Rhythm+Raiders',
+        thumbnailUrl: './rhythm-raiders-tile.svg',
+        bannerUrl: './rhythm-raiders-tile.svg',
         features: ['Rhythm-Based Combat', 'Dynamic Soundtrack', 'Procedural Dungeons'],
         platforms: ['Web', 'PC', 'Console', 'Mobile'],
         genre: ['Rhythm', 'Roguelike']
@@ -37,8 +37,8 @@ export const useGameStore = defineStore('games', {
         description: 'A cyberpunk platformer game where you play as a Phosphor Stalker, battling against the Neon Shadows in a digital world. Navigate through challenging platforming levels, collect data fragments and upgrade cores, and unlock powerful abilities to defeat your enemies.',
         status: 'development',
         releaseDate: 'Late Fall 2025',
-        thumbnailUrl: 'https://placehold.co/600x400/FF5252/ffffff?text=Neon+Shadows',
-        bannerUrl: 'https://placehold.co/1200x400/FF5252/ffffff?text=Neon+Shadows',
+        thumbnailUrl: './neon-shadows-tile.svg',
+        bannerUrl: './neon-shadows-tile.svg',
         features: ['Platforming Action', 'Digital Combat', 'Upgrade System', 'Data Collection'],
         platforms: ['PC', 'Console'],
         genre: ['Cyberpunk', 'Platformer']

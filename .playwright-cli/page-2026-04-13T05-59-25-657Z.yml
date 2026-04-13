@@ -1,0 +1,246 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "FBG" [ref=e6] [cursor=pointer]:
+        - /url: "#hero"
+      - generic [ref=e7]:
+        - link "WakeWeaver" [ref=e8] [cursor=pointer]:
+          - /url: "#wakeweaver"
+        - link "Games" [ref=e9] [cursor=pointer]:
+          - /url: "#games"
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: "#about"
+        - link "Updates" [ref=e11] [cursor=pointer]:
+          - /url: "#/press-releases"
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e77]:
+          - img "Faucet Boat Games" [ref=e80]
+          - heading "FAUCET BOAT GAMES" [level=1] [ref=e81]
+          - paragraph [ref=e86]: Games built by AI. Played by
+          - generic [ref=e90]: PRESS START
+        - generic [ref=e94]:
+          - generic [ref=e95]: scroll
+          - img [ref=e96]
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - heading "WAKEWEAVER" [level=2] [ref=e101]
+          - generic [ref=e103]: COMING SOON
+        - generic [ref=e105]:
+          - generic [ref=e123]:
+            - img [ref=e124]
+            - img [ref=e126]
+          - generic [ref=e148]:
+            - generic [ref=e149]: CAPTAIN WAKE
+            - paragraph [ref=e150]: Yo! Welcome to the open waters! I'm Captain Wake — I build games out here on the waves.
+            - generic [ref=e151] [cursor=pointer]: ▼ NEXT
+        - link "GET NOTIFIED" [ref=e153] [cursor=pointer]:
+          - /url: https://build.faucetboatgames.com
+          - generic [ref=e154]: GET NOTIFIED
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]: // what we've built
+          - heading "OUR GAMES" [level=2] [ref=e159]
+        - generic [ref=e161]:
+          - button "All" [ref=e162]
+          - button "Live" [ref=e163]
+          - button "In Dev" [ref=e164]
+        - generic [ref=e165]:
+          - link "Snooze Snooze Web PC Mobile LIVE Snooze Can you keep a sleepy bear dreaming for a full minute? Master the art of noise management in this thrilling arcade challenge where every sound matters and silence is your greatest weapon. Features ▸ Noise Management ▸ Time Pressure ▸ Relaxing Theme Arcade Casual Play Now" [ref=e167] [cursor=pointer]:
+            - /url: https://snooze.faucetboatgames.com
+            - generic [ref=e169]:
+              - generic [ref=e170]:
+                - img "Snooze" [ref=e171]
+                - generic [ref=e173]:
+                  - heading "Snooze" [level=3] [ref=e174]
+                  - generic [ref=e175]:
+                    - generic [ref=e176]: Web
+                    - generic [ref=e177]: PC
+                    - generic [ref=e178]: Mobile
+                - generic [ref=e179]: LIVE
+              - generic [ref=e180]:
+                - heading "Snooze" [level=3] [ref=e181]
+                - paragraph [ref=e182]: Can you keep a sleepy bear dreaming for a full minute? Master the art of noise management in this thrilling arcade challenge where every sound matters and silence is your greatest weapon.
+                - generic [ref=e183]:
+                  - heading "Features" [level=4] [ref=e184]
+                  - list [ref=e185]:
+                    - listitem [ref=e186]:
+                      - generic [ref=e187]: ▸
+                      - text: Noise Management
+                    - listitem [ref=e188]:
+                      - generic [ref=e189]: ▸
+                      - text: Time Pressure
+                    - listitem [ref=e190]:
+                      - generic [ref=e191]: ▸
+                      - text: Relaxing Theme
+                - generic [ref=e192]:
+                  - generic [ref=e193]: Arcade
+                  - generic [ref=e194]: Casual
+                - link "Play Now" [ref=e196]:
+                  - /url: https://snooze.faucetboatgames.com
+          - link "Rhythm Raiders Rhythm Raiders Web PC Console LIVE Rhythm Raiders A music-based dungeon crawler where your attacks and movements sync with the beat. Explore procedurally generated dungeons with a soundtrack that adapts to your play style. Features ▸ Rhythm-Based Combat ▸ Dynamic Soundtrack ▸ Procedural Dungeons Rhythm Roguelike Play Now" [ref=e198] [cursor=pointer]:
+            - /url: https://rhythm-raiders.faucetboatgames.com
+            - generic [ref=e200]:
+              - generic [ref=e201]:
+                - img "Rhythm Raiders" [ref=e202]
+                - generic [ref=e204]:
+                  - heading "Rhythm Raiders" [level=3] [ref=e205]
+                  - generic [ref=e206]:
+                    - generic [ref=e207]: Web
+                    - generic [ref=e208]: PC
+                    - generic [ref=e209]: Console
+                - generic [ref=e210]: LIVE
+              - generic [ref=e211]:
+                - heading "Rhythm Raiders" [level=3] [ref=e212]
+                - paragraph [ref=e213]: A music-based dungeon crawler where your attacks and movements sync with the beat. Explore procedurally generated dungeons with a soundtrack that adapts to your play style.
+                - generic [ref=e214]:
+                  - heading "Features" [level=4] [ref=e215]
+                  - list [ref=e216]:
+                    - listitem [ref=e217]:
+                      - generic [ref=e218]: ▸
+                      - text: Rhythm-Based Combat
+                    - listitem [ref=e219]:
+                      - generic [ref=e220]: ▸
+                      - text: Dynamic Soundtrack
+                    - listitem [ref=e221]:
+                      - generic [ref=e222]: ▸
+                      - text: Procedural Dungeons
+                - generic [ref=e223]:
+                  - generic [ref=e224]: Rhythm
+                  - generic [ref=e225]: Roguelike
+                - link "Play Now" [ref=e227]:
+                  - /url: https://rhythm-raiders.faucetboatgames.com
+          - generic [ref=e230] [cursor=pointer]:
+            - generic [ref=e231]:
+              - img "Neon Shadows" [ref=e232]
+              - generic [ref=e234]:
+                - heading "Neon Shadows" [level=3] [ref=e235]
+                - generic [ref=e236]:
+                  - generic [ref=e237]: PC
+                  - generic [ref=e238]: Console
+              - generic [ref=e239]: DEV
+            - generic [ref=e240]:
+              - heading "Neon Shadows" [level=3] [ref=e241]
+              - paragraph [ref=e242]: A cyberpunk platformer game where you play as a Phosphor Stalker, battling against the Neon Shadows in a digital world. Navigate through challenging platforming levels, collect data fragments and upgrade cores, and unlock powerful abilities to defeat your enemies.
+              - generic [ref=e243]:
+                - heading "Features" [level=4] [ref=e244]
+                - list [ref=e245]:
+                  - listitem [ref=e246]:
+                    - generic [ref=e247]: ▸
+                    - text: Platforming Action
+                  - listitem [ref=e248]:
+                    - generic [ref=e249]: ▸
+                    - text: Digital Combat
+                  - listitem [ref=e250]:
+                    - generic [ref=e251]: ▸
+                    - text: Upgrade System
+                  - listitem [ref=e252]:
+                    - generic [ref=e253]: ▸
+                    - text: Data Collection
+              - generic [ref=e254]:
+                - generic [ref=e255]: Cyberpunk
+                - generic [ref=e256]: Platformer
+              - generic [ref=e257]: "Expected: Late Fall 2025"
+              - button "Details" [ref=e259]
+        - generic [ref=e260]:
+          - heading "ON OUR RADAR" [level=3] [ref=e263]
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - generic [ref=e268]: Cosmic Voyager
+                - generic [ref=e269]: Space Sim · Adventure
+              - generic [ref=e270]: 2025 Q4
+            - generic [ref=e271]:
+              - generic [ref=e272]:
+                - generic [ref=e273]: Forest Keepers
+                - generic [ref=e274]: Simulation · Management
+              - generic [ref=e275]: 2026 Q1
+            - generic [ref=e276]:
+              - generic [ref=e277]:
+                - generic [ref=e278]: Quantum Dreams
+                - generic [ref=e279]: Puzzle · Sci-Fi
+              - generic [ref=e280]: 2026 Q2
+            - generic [ref=e281]:
+              - generic [ref=e282]:
+                - generic [ref=e283]: Mythic Legends
+                - generic [ref=e284]: RPG · Strategy
+              - generic [ref=e285]: 2026 Q3
+            - generic [ref=e286]:
+              - generic [ref=e287]:
+                - generic [ref=e288]: Velocity Drift
+                - generic [ref=e289]: Racing · Arcade
+              - generic [ref=e290]: 2026 Q4
+            - generic [ref=e291]:
+              - generic [ref=e292]:
+                - generic [ref=e293]: Tiny Titans
+                - generic [ref=e294]: Simulation · Strategy
+              - generic [ref=e295]: 2027 Q1
+      - generic [ref=e297]:
+        - generic [ref=e298]:
+          - generic [ref=e299]: // friends of fbg
+          - heading "COMMUNITY SPOTLIGHT" [level=2] [ref=e300]
+        - generic [ref=e303]:
+          - generic [ref=e304]: Featured
+          - heading "SOUL RANGER" [level=3] [ref=e305]
+          - paragraph [ref=e306]: Our friends at DonatesSouls are cooking something special.
+          - paragraph [ref=e307]: Details are scarce. Excitement is not.
+          - paragraph [ref=e308]: Coming Soon to donatesouls.com
+          - link "Visit donatesouls.com" [ref=e309] [cursor=pointer]:
+            - /url: https://donatesouls.com
+            - text: Visit donatesouls.com
+            - img [ref=e310]
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - generic [ref=e316]:
+            - generic [ref=e317]: // latest
+            - heading "UPDATES" [level=2] [ref=e318]
+          - link "View All" [ref=e319] [cursor=pointer]:
+            - /url: "#/press-releases"
+            - text: View All
+            - img [ref=e320]
+        - generic [ref=e322]:
+          - generic [ref=e323]: "[2025.08.21]"
+          - 'heading "Faucet Boat Games Unleashes Snooze: The World''s Sleepiest Thriller" [level=3] [ref=e324]'
+          - paragraph [ref=e325]: "Today, the AI-fueled indie dream factory Faucet Boat Games (FBG) proudly launches its second official title: Snooze – the only game brave enough to as..."
+          - link "Read Full Release" [ref=e326] [cursor=pointer]:
+            - /url: "#/press-releases"
+            - text: Read Full Release
+            - img [ref=e327]
+      - generic [ref=e330]:
+        - generic [ref=e331]:
+          - generic [ref=e332]: "- ABOUT -"
+          - heading "WHO WE ARE" [level=2] [ref=e333]
+        - generic [ref=e340]:
+          - paragraph [ref=e341]: We're an AI-powered indie game studio.
+          - paragraph [ref=e342]: Our AI agents design, build, and ship games. We set the direction. They write the code.
+          - generic [ref=e345]: FULLY AUTONOMOUS
+        - generic [ref=e347]:
+          - generic [ref=e348]: POWER-UPS EQUIPPED
+          - generic [ref=e349]:
+            - generic [ref=e350]:
+              - generic [ref=e352]: ">>"
+              - heading "INNOVATION" [level=3] [ref=e353]
+              - paragraph [ref=e356]: Fresh ideas, wild mechanics. AI lets us explore faster than ever.
+            - generic [ref=e357]:
+              - generic [ref=e359]: "[]"
+              - heading "QUALITY" [level=3] [ref=e360]
+              - paragraph [ref=e363]: Polished games that respect players. Every spec tested, every deploy verified.
+            - generic [ref=e364]:
+              - generic [ref=e366]: <>
+              - heading "COMMUNITY" [level=3] [ref=e367]
+              - paragraph [ref=e370]: Built with players in mind. Your feedback shapes what we ship next.
+  - contentinfo [ref=e371]:
+    - generic [ref=e372]:
+      - generic [ref=e373]:
+        - generic [ref=e374]:
+          - img "FBG" [ref=e375]
+          - generic [ref=e376]: FAUCET BOAT GAMES
+        - generic [ref=e377]:
+          - link "Updates" [ref=e378] [cursor=pointer]:
+            - /url: "#/press-releases"
+          - link "WakeWeaver" [ref=e379] [cursor=pointer]:
+            - /url: https://build.faucetboatgames.com
+      - paragraph [ref=e381]: © 2026 Faucet Boat Games. Built by AI agents.
+  - region "Notifications alt+T":
+    - list

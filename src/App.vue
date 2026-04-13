@@ -1,118 +1,71 @@
-<!-- src/App.vue -->
 <template>
-  <div class="app">
-    <router-view />
-    
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <img src="@/assets/images/logo.png" alt="Faucet Boat Games" 
-                 onerror="this.src='https://placehold.co/100x100/1A237E/ffffff?text=FBG'">
-            <p>Faucet Boat Games</p>
+  <div class="min-h-screen flex flex-col" :class="{ 'retro-mode': retroMode }">
+    <NavBar />
+
+    <main class="flex-1 pt-14">
+      <router-view />
+    </main>
+
+    <footer class="bg-[--color-bg-surface] border-t border-[--color-border] py-8 mt-auto">
+      <div class="max-w-[1200px] mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+          <div class="flex items-center gap-3">
+            <img
+              src="@/assets/images/logo.png"
+              alt="FBG"
+              class="w-8 h-8 opacity-70"
+              onerror="this.style.display='none'"
+            >
+            <span class="font-[--font-pixel] text-[--color-text-muted] text-[9px]">
+              FAUCET BOAT GAMES
+            </span>
           </div>
-          <div class="footer-links">
-            <h4>Connect With Us</h4>
-            <ul>
-              <li><a href="#" target="_blank">Twitter</a></li>
-              <li><a href="#" target="_blank">Discord</a></li>
-              <li><a href="#" target="_blank">Steam</a></li>
-              <li><a href="#" target="_blank">Contact</a></li>
-              <li><router-link to="/press-releases">📰 Press Releases</router-link></li>
-            </ul>
+          <div class="flex items-center gap-5 font-[--font-mono] text-sm">
+            <router-link to="/press-releases" class="text-[--color-text-muted] hover:text-[--color-amber] transition-colors">
+              Updates
+            </router-link>
+            <a href="https://build.faucetboatgames.com" target="_blank" class="text-[--color-text-muted] hover:text-[--color-phosphor] transition-colors">
+              WakeWeaver
+            </a>
           </div>
         </div>
-        <div class="copyright">
-          <p>&copy; {{ new Date().getFullYear() }} Faucet Boat Games. All rights reserved.</p>
+        <div class="text-center">
+          <p class="font-[--font-mono] text-[--color-text-muted] text-xs opacity-60">
+            &copy; {{ new Date().getFullYear() }} Faucet Boat Games. Built by AI agents.
+          </p>
         </div>
       </div>
     </footer>
+
+    <Toaster position="bottom-right" :theme="'dark'" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import NavBar from '@/components/NavBar.vue'
+import { Toaster } from '@/components/ui/sonner'
+import { useKonamiCode } from '@/composables/useKonamiCode'
+import { useAchievements } from '@/composables/useAchievements'
+
+const retroMode = ref(false)
+const { unlock } = useAchievements()
+
+useKonamiCode(() => {
+  retroMode.value = !retroMode.value
+  unlock('konami')
+})
+
+onMounted(() => {
+  unlock('welcome')
+})
 </script>
 
-<style scoped lang="scss">
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-footer {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 3rem 0 1rem;
-  margin-top: auto;
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  }
-  
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    
-    img {
-      width: 50px;
-      height: 50px;
-      margin-right: 1rem;
-    }
-    
-    p {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-  }
-  
-  .footer-links {
-    h4 {
-      margin-bottom: 1rem;
-      color: var(--color-secondary);
-    }
-    
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      
-      @media (max-width: 768px) {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      
-      a, router-link {
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        
-        &:hover {
-          color: var(--color-accent);
-        }
-      }
-    }
-  }
-  
-  .copyright {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
-    opacity: 0.7;
-  }
+<style>
+.retro-mode {
+  --color-phosphor: #ffb300 !important;
+  --color-cyan: #ffb300 !important;
+  --color-hot-pink: #ff8f00 !important;
+  filter: sepia(0.3) contrast(1.1);
 }
 </style>
