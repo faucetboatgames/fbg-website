@@ -94,11 +94,22 @@
               <p class="dialog-text font-[--font-mono] text-[--color-text] text-sm sm:text-base leading-[1.8]">
                 {{ currentDialog }}
               </p>
-              <!-- Next indicator -->
-              <div class="dialog-next" @click="nextDialog">
-                <span class="font-[--font-pixel] text-[--color-amber] text-[7px] sm:text-[8px] tracking-wider">
-                  {{ dialogIndex < dialogs.length - 1 ? '▼ NEXT' : '▼ START' }}
-                </span>
+              <!-- Controls -->
+              <div class="dialog-controls">
+                <button
+                  class="dialog-btn"
+                  :title="paused ? 'Auto-advance' : 'Pause'"
+                  @click="togglePause"
+                >
+                  <span class="font-[--font-pixel] text-[--color-text-muted] text-[7px] sm:text-[8px] tracking-wider hover:text-[--color-cyan] transition-colors">
+                    {{ paused ? '▶ PLAY' : '❚❚ PAUSE' }}
+                  </span>
+                </button>
+                <button class="dialog-btn" @click="nextDialog">
+                  <span class="font-[--font-pixel] text-[--color-amber] text-[7px] sm:text-[8px] tracking-wider hover:text-[--color-phosphor] transition-colors" :class="{ 'dialog-blink': !paused }">
+                    {{ dialogIndex < dialogs.length - 1 ? '▼ NEXT' : '▼ START' }}
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -141,19 +152,43 @@ const dialogs = [
 ]
 
 const dialogIndex = ref(0)
+const paused = ref(false)
 const currentDialog = computed(() => dialogs[dialogIndex.value])
 let autoAdvance: ReturnType<typeof setInterval> | null = null
 
+function startAutoAdvance() {
+  stopAutoAdvance()
+  autoAdvance = setInterval(nextDialog, 5000)
+}
+
+function stopAutoAdvance() {
+  if (autoAdvance) {
+    clearInterval(autoAdvance)
+    autoAdvance = null
+  }
+}
+
 function nextDialog() {
   dialogIndex.value = (dialogIndex.value + 1) % dialogs.length
+  // Reset timer when manually clicking next so it doesn't jump right after
+  if (!paused.value) startAutoAdvance()
+}
+
+function togglePause() {
+  paused.value = !paused.value
+  if (paused.value) {
+    stopAutoAdvance()
+  } else {
+    startAutoAdvance()
+  }
 }
 
 onMounted(() => {
-  autoAdvance = setInterval(nextDialog, 5000)
+  startAutoAdvance()
 })
 
 onUnmounted(() => {
-  if (autoAdvance) clearInterval(autoAdvance)
+  stopAutoAdvance()
 })
 </script>
 
@@ -579,12 +614,23 @@ onUnmounted(() => {
   position: relative;
 }
 
-/* Next button */
-.dialog-next {
-  position: absolute;
-  bottom: -2px;
-  right: 0;
+/* Controls row */
+.dialog-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.dialog-btn {
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 2px 4px;
+}
+
+.dialog-blink {
   animation: dialog-blink 1.2s step-end infinite;
 }
 

@@ -77,9 +77,12 @@
 
       <!-- INSERT COIN prompt -->
       <div class="insert-coin-wrap">
-        <span class="insert-coin font-[--font-pixel] text-[--color-amber] text-[10px] sm:text-xs tracking-[0.3em]">
+        <button
+          class="insert-coin font-[--font-pixel] text-[--color-amber] text-[10px] sm:text-xs tracking-[0.3em] bg-transparent border-none cursor-pointer hover:text-[--color-phosphor] transition-colors"
+          @click="pressStart"
+        >
           PRESS START
-        </span>
+        </button>
       </div>
 
       <!-- Coin slot decoration -->
@@ -107,6 +110,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+
+function pressStart() {
+  const el = document.getElementById('wakeweaver')
+  if (el) {
+    const top = el.getBoundingClientRect().top + window.scrollY - 56
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+}
 
 const words = ['humans.', 'you.', 'robots.', 'legends.', 'insomniacs.', 'AI... wait.']
 const displayText = ref('')

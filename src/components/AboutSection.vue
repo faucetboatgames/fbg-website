@@ -4,88 +4,105 @@
     class="py-16 md:py-24 relative"
     style="background: linear-gradient(180deg, #0a0a1a 0%, #0a0f1a 50%, #0a0a1a 100%);"
   >
-    <div style="max-width: 900px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem;">
-      <!-- Header styled like a game's story/credits screen -->
-      <div class="text-center mb-10 sm:mb-14 animate-on-scroll">
-        <div class="inline-block mb-4">
-          <span class="font-[--font-pixel] text-[--color-amber] text-[10px] sm:text-xs tracking-[0.3em] about-title-deco">
-            - ABOUT -
-          </span>
-        </div>
+    <div style="max-width: 640px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem;">
+      <!-- Header -->
+      <div class="text-center mb-10 animate-on-scroll">
+        <span class="font-[--font-pixel] text-[--color-amber] text-[10px] sm:text-xs tracking-[0.3em]" style="text-shadow: 0 0 12px rgba(255, 179, 0, 0.4);">
+          - ABOUT -
+        </span>
         <h2
-          class="font-[--font-pixel] text-[--color-text] text-sm sm:text-base md:text-lg mb-2"
+          class="font-[--font-pixel] text-[--color-text] text-sm sm:text-base md:text-lg mt-3"
           style="text-shadow: 0 0 15px rgba(224, 224, 224, 0.2);"
         >
           WHO WE ARE
         </h2>
       </div>
 
-      <!-- Story screen - like reading lore on an arcade cabinet -->
-      <div class="animate-on-scroll mb-12 sm:mb-16 mx-auto" style="max-width: 36rem;">
-        <div class="story-screen">
-          <!-- Decorative pixel corners -->
-          <div class="pixel-corner pixel-corner-tl" />
-          <div class="pixel-corner pixel-corner-tr" />
-          <div class="pixel-corner pixel-corner-bl" />
-          <div class="pixel-corner pixel-corner-br" />
+      <!-- Arcade screen card -->
+      <div class="animate-on-scroll arcade-screen">
+        <!-- Scanlines -->
+        <div class="scanlines" />
 
-          <div class="p-6 sm:p-8 text-center">
-            <p class="font-[--font-mono] text-[--color-phosphor] text-base sm:text-lg leading-[2] mb-4">
-              We're an AI-powered indie game studio.
-            </p>
-            <p class="font-[--font-mono] text-[--color-text] text-sm sm:text-base leading-[2] mb-4">
-              Our AI agents design, build, and ship games.
-              We set the direction. They write the code.
-            </p>
-            <div class="flex items-center justify-center gap-3 mt-6">
-              <span class="block w-1.5 h-1.5 bg-[--color-hot-pink] rotate-45" />
-              <span class="font-[--font-pixel] text-[--color-text-muted] text-[8px] tracking-[0.4em]">FULLY AUTONOMOUS</span>
-              <span class="block w-1.5 h-1.5 bg-[--color-hot-pink] rotate-45" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Character stats / power-ups -->
-      <div class="animate-on-scroll">
-        <div class="font-[--font-pixel] text-[--color-cyan] text-[9px] sm:text-[10px] text-center mb-6 tracking-[0.3em]">
-          POWER-UPS EQUIPPED
+        <!-- Score bar -->
+        <div class="score-bar">
+          <span class="font-[--font-pixel] text-[--color-amber] text-[8px] sm:text-[9px] tracking-widest">HI-SCORE</span>
+          <span class="font-[--font-pixel] text-[--color-amber] text-[8px] sm:text-[9px] tracking-widest">{{ score.toLocaleString() }}</span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mx-auto" style="max-width: 42rem;">
+        <!-- Space scene -->
+        <div class="space-scene">
+          <!-- Stars -->
           <div
-            v-for="stat in stats"
-            :key="stat.title"
-            class="stat-card group"
-            :style="`--stat-color: ${stat.rawColor};`"
-          >
-            <!-- Stat icon like a power-up pickup -->
-            <div class="stat-icon-wrap mb-3">
-              <span
-                class="font-[--font-pixel] text-xl sm:text-2xl block transition-transform duration-300 group-hover:scale-125"
-                :style="`color: ${stat.rawColor}; text-shadow: 0 0 10px ${stat.rawColor}60; filter: drop-shadow(0 0 6px ${stat.rawColor}40);`"
-              >
-                {{ stat.icon }}
-              </span>
+            v-for="i in 25"
+            :key="`s-${i}`"
+            class="abs-star"
+            :style="{
+              left: `${(i * 37 + 11) % 100}%`,
+              top: `${(i * 53 + 7) % 100}%`,
+              width: `${1 + i % 2}px`,
+              height: `${1 + i % 2}px`,
+              animationDelay: `${i * 0.2}s`,
+            }"
+          />
+
+          <!-- Invader rows -->
+          <div class="invader-row invader-row-1">
+            <div v-for="n in 5" :key="n" class="invader inv-a" :style="{ animationDelay: `${n * 0.15}s` }">
+              <div class="inv-pixel" style="grid-column: 2; grid-row: 1;" />
+              <div class="inv-pixel" style="grid-column: 4; grid-row: 1;" />
+              <div class="inv-pixel" style="grid-column: 1; grid-row: 2;" />
+              <div class="inv-pixel" style="grid-column: 3; grid-row: 2;" />
+              <div class="inv-pixel" style="grid-column: 5; grid-row: 2;" />
+              <div class="inv-pixel" style="grid-column: 1; grid-row: 3;" />
+              <div class="inv-pixel" style="grid-column: 2; grid-row: 3;" />
+              <div class="inv-pixel" style="grid-column: 3; grid-row: 3;" />
+              <div class="inv-pixel" style="grid-column: 4; grid-row: 3;" />
+              <div class="inv-pixel" style="grid-column: 5; grid-row: 3;" />
+              <div class="inv-pixel" style="grid-column: 2; grid-row: 4;" />
+              <div class="inv-pixel" style="grid-column: 4; grid-row: 4;" />
             </div>
-
-            <!-- Stat bar header -->
-            <h3 class="font-[--font-pixel] text-[--color-text] text-[9px] sm:text-[10px] tracking-wider mb-2">
-              {{ stat.title }}
-            </h3>
-
-            <!-- Stat bar fill -->
-            <div class="stat-bar mb-3">
-              <div
-                class="stat-bar-fill"
-                :style="`width: ${stat.level}%; background: ${stat.rawColor}; box-shadow: 0 0 8px ${stat.rawColor}60;`"
-              />
-            </div>
-
-            <p class="font-[--font-mono] text-[--color-text-muted] text-xs leading-relaxed">
-              {{ stat.description }}
-            </p>
           </div>
+
+          <div class="invader-row invader-row-2">
+            <div v-for="n in 6" :key="n" class="invader inv-b" :style="{ animationDelay: `${n * 0.12}s` }">
+              <div class="inv-pixel" style="grid-column: 1; grid-row: 1;" />
+              <div class="inv-pixel" style="grid-column: 3; grid-row: 1;" />
+              <div class="inv-pixel" style="grid-column: 1; grid-row: 2;" />
+              <div class="inv-pixel" style="grid-column: 2; grid-row: 2;" />
+              <div class="inv-pixel" style="grid-column: 3; grid-row: 2;" />
+              <div class="inv-pixel" style="grid-column: 1; grid-row: 3;" />
+              <div class="inv-pixel" style="grid-column: 3; grid-row: 3;" />
+            </div>
+          </div>
+
+          <!-- Player ship -->
+          <div class="player-ship">
+            <div class="ship-body" />
+            <div class="ship-cannon" />
+            <div class="ship-wing-l" />
+            <div class="ship-wing-r" />
+          </div>
+
+          <!-- Laser -->
+          <div class="laser" />
+        </div>
+
+        <!-- Message area -->
+        <div class="message-area">
+          <p class="font-[--font-pixel] text-[--color-phosphor] text-[9px] sm:text-[10px] tracking-wider leading-[2.2] sm:leading-[2.5]">
+            WE'RE AN AI-POWERED INDIE GAME STUDIO
+          </p>
+          <p class="font-[--font-mono] text-[--color-text]/70 text-xs sm:text-sm leading-relaxed mt-2">
+            Our AI agents design, build, and ship games.<br>
+            We set the direction. They write the code.
+          </p>
+        </div>
+
+        <!-- Insert coin footer -->
+        <div class="coin-footer">
+          <span class="font-[--font-pixel] text-[--color-amber] text-[7px] sm:text-[8px] tracking-[0.3em] coin-blink">
+            INSERT COIN TO CONTINUE
+          </span>
         </div>
       </div>
     </div>
@@ -93,143 +110,283 @@
 </template>
 
 <script setup lang="ts">
-const stats = [
-  {
-    icon: '>>',
-    title: 'INNOVATION',
-    description: 'Fresh ideas, wild mechanics. AI lets us explore faster than ever.',
-    rawColor: '#33ff33',
-    level: 95,
-  },
-  {
-    icon: '[]',
-    title: 'QUALITY',
-    description: 'Polished games that respect players. Every spec tested, every deploy verified.',
-    rawColor: '#00f0ff',
-    level: 88,
-  },
-  {
-    icon: '<>',
-    title: 'COMMUNITY',
-    description: 'Built with players in mind. Your feedback shapes what we ship next.',
-    rawColor: '#ff2d7b',
-    level: 80,
-  },
-]
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const score = ref(0)
+const targetScore = 99850
+let scoreInterval: ReturnType<typeof setInterval> | null = null
+
+onMounted(() => {
+  // Count up the score like an arcade game
+  scoreInterval = setInterval(() => {
+    if (score.value < targetScore) {
+      score.value += Math.min(1337, targetScore - score.value)
+    } else {
+      if (scoreInterval) clearInterval(scoreInterval)
+    }
+  }, 50)
+})
+
+onUnmounted(() => {
+  if (scoreInterval) clearInterval(scoreInterval)
+})
 </script>
 
 <style scoped>
-/* Story screen - arcade lore panel */
-.story-screen {
+.arcade-screen {
+  border: 3px solid #1a1a2e;
+  border-radius: 8px;
+  background: #020408;
+  overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, rgba(15, 15, 42, 0.8), rgba(10, 10, 26, 0.9));
-  border: 1px solid var(--color-border);
-  border-radius: 2px;
+  box-shadow:
+    0 0 40px rgba(0, 240, 255, 0.03),
+    inset 0 0 60px rgba(0, 0, 0, 0.6);
 }
 
-.story-screen::before {
-  content: '';
+.scanlines {
   position: absolute;
-  inset: 3px;
-  border: 1px solid var(--color-border);
-  border-radius: 1px;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 240, 255, 0.01) 2px,
+    rgba(0, 240, 255, 0.01) 4px
+  );
   pointer-events: none;
+  z-index: 10;
 }
 
-/* Pixel corners */
-.pixel-corner {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-}
-
-.pixel-corner::before,
-.pixel-corner::after {
-  content: '';
-  position: absolute;
-  background: var(--color-amber);
-  opacity: 0.5;
-}
-
-.pixel-corner-tl { top: -1px; left: -1px; }
-.pixel-corner-tl::before { top: 0; left: 0; width: 8px; height: 2px; }
-.pixel-corner-tl::after { top: 0; left: 0; width: 2px; height: 8px; }
-
-.pixel-corner-tr { top: -1px; right: -1px; }
-.pixel-corner-tr::before { top: 0; right: 0; width: 8px; height: 2px; }
-.pixel-corner-tr::after { top: 0; right: 0; width: 2px; height: 8px; }
-
-.pixel-corner-bl { bottom: -1px; left: -1px; }
-.pixel-corner-bl::before { bottom: 0; left: 0; width: 8px; height: 2px; }
-.pixel-corner-bl::after { bottom: 0; left: 0; width: 2px; height: 8px; }
-
-.pixel-corner-br { bottom: -1px; right: -1px; }
-.pixel-corner-br::before { bottom: 0; right: 0; width: 8px; height: 2px; }
-.pixel-corner-br::after { bottom: 0; right: 0; width: 2px; height: 8px; }
-
-/* About title deco */
-.about-title-deco {
-  text-shadow: 0 0 12px rgba(255, 179, 0, 0.4);
-}
-
-/* Stat card - power-up style */
-.stat-card {
-  text-align: center;
-  padding: 24px 20px;
-  background: rgba(15, 15, 42, 0.5);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--stat-color);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.stat-card:hover {
-  border-color: var(--stat-color);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--stat-color) 15%, transparent);
-}
-
-.stat-card:hover::before {
-  opacity: 0.6;
-}
-
-/* Stat icon container */
-.stat-icon-wrap {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto;
+/* Score bar */
+.score-bar {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  padding: 10px 16px 6px;
 }
 
-/* Stat bar - RPG style */
-.stat-bar {
-  height: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 1px;
+/* Space scene */
+.space-scene {
+  position: relative;
+  height: 180px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.stat-bar-fill {
-  height: 100%;
-  border-radius: 0;
-  transition: width 1s ease-out;
+@media (min-width: 640px) {
+  .space-scene {
+    height: 220px;
+  }
+}
+
+.abs-star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twink 2s ease-in-out infinite;
+}
+
+@keyframes twink {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.6; }
+}
+
+/* Invader rows */
+.invader-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  animation: invader-drift 4s ease-in-out infinite;
+}
+
+@media (min-width: 640px) {
+  .invader-row {
+    gap: 20px;
+  }
+}
+
+.invader-row-1 {
+  padding-top: 20px;
+}
+
+.invader-row-2 {
+  padding-top: 12px;
+  animation-delay: 0.5s;
+  animation-direction: reverse;
+}
+
+@keyframes invader-drift {
+  0%, 100% { transform: translateX(-12px); }
+  50% { transform: translateX(12px); }
+}
+
+/* Pixel invaders using CSS grid */
+.invader {
+  display: grid;
+  gap: 1px;
+  animation: invader-bob 0.8s step-end infinite;
+}
+
+.inv-a {
+  grid-template-columns: repeat(5, 3px);
+  grid-template-rows: repeat(4, 3px);
+}
+
+.inv-b {
+  grid-template-columns: repeat(3, 3px);
+  grid-template-rows: repeat(3, 3px);
+}
+
+@media (min-width: 640px) {
+  .inv-a {
+    grid-template-columns: repeat(5, 4px);
+    grid-template-rows: repeat(4, 4px);
+  }
+  .inv-b {
+    grid-template-columns: repeat(3, 4px);
+    grid-template-rows: repeat(3, 4px);
+  }
+}
+
+.inv-a .inv-pixel {
+  background: #ff2d7b;
+  box-shadow: 0 0 4px rgba(255, 45, 123, 0.4);
+}
+
+.inv-b .inv-pixel {
+  background: #00f0ff;
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.4);
+}
+
+@keyframes invader-bob {
+  0%, 49% { transform: translateY(0); }
+  50%, 100% { transform: translateY(1px); }
+}
+
+/* Player ship */
+.player-ship {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ship-body {
+  width: 12px;
+  height: 8px;
+  background: #33ff33;
+  margin: 0 auto;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 8px rgba(51, 255, 51, 0.4);
+}
+
+.ship-cannon {
+  width: 4px;
+  height: 6px;
+  background: #33ff33;
+  margin: 0 auto;
+  position: relative;
+  top: -14px;
+  border-radius: 1px 1px 0 0;
+}
+
+.ship-wing-l,
+.ship-wing-r {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 4px;
+  background: #33ff33;
+  opacity: 0.7;
+}
+
+.ship-wing-l {
+  left: -4px;
+  border-radius: 1px 0 0 1px;
+}
+
+.ship-wing-r {
+  right: -4px;
+  border-radius: 0 1px 1px 0;
+}
+
+@media (min-width: 640px) {
+  .ship-body {
+    width: 16px;
+    height: 10px;
+  }
+  .ship-cannon {
+    width: 4px;
+    height: 8px;
+    top: -18px;
+  }
+  .ship-wing-l, .ship-wing-r {
+    width: 8px;
+    height: 5px;
+  }
+  .ship-wing-l { left: -6px; }
+  .ship-wing-r { right: -6px; }
+}
+
+/* Laser beam */
+.laser {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 0;
+  background: #33ff33;
+  box-shadow: 0 0 6px #33ff33;
+  animation: laser-fire 2s ease-out infinite;
+}
+
+@media (min-width: 640px) {
+  .laser {
+    bottom: 36px;
+  }
+}
+
+@keyframes laser-fire {
+  0% { height: 0; opacity: 1; bottom: 30px; }
+  30% { height: 60px; opacity: 1; }
+  50% { height: 60px; opacity: 0; }
+  100% { height: 0; opacity: 0; }
+}
+
+@media (min-width: 640px) {
+  @keyframes laser-fire {
+    0% { height: 0; opacity: 1; bottom: 36px; }
+    30% { height: 80px; opacity: 1; }
+    50% { height: 80px; opacity: 0; }
+    100% { height: 0; opacity: 0; }
+  }
+}
+
+/* Message area */
+.message-area {
+  text-align: center;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 640px) {
+  .message-area {
+    padding: 24px 36px;
+  }
+}
+
+/* Coin footer */
+.coin-footer {
+  text-align: center;
+  padding: 8px 16px 14px;
+}
+
+.coin-blink {
+  animation: blink 1.5s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 70% { opacity: 1; }
+  71%, 100% { opacity: 0; }
 }
 </style>
