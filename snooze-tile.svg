@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" style="background:#2d1b69">
+  <!-- Stars -->
+  <rect x="20" y="10" width="2" height="2" fill="#fff" opacity=".4"/>
+  <rect x="80" y="8" width="2" height="2" fill="#fff" opacity=".3"/>
+  <rect x="140" y="15" width="2" height="2" fill="#fff" opacity=".5"/>
+  <rect x="50" y="20" width="2" height="2" fill="#fff" opacity=".25"/>
+  <rect x="120" y="5" width="2" height="2" fill="#fff" opacity=".35"/>
+
+  <!-- Moon -->
+  <circle cx="135" cy="22" r="8" fill="#ffe066"/>
+  <circle cx="139" cy="19" r="7" fill="#2d1b69"/>
+
+  <!-- Zzz -->
+  <text x="98" y="38" font-family="monospace" font-size="10" fill="#ffe066" opacity=".7" font-weight="bold">Z</text>
+  <text x="106" y="30" font-family="monospace" font-size="8" fill="#ffe066" opacity=".5" font-weight="bold">z</text>
+  <text x="112" y="24" font-family="monospace" font-size="6" fill="#ffe066" opacity=".3" font-weight="bold">z</text>
+
+  <!-- Bed frame -->
+  <rect x="20" y="85" width="100" height="6" rx="1" fill="#8B5E3C"/>
+  <rect x="18" y="70" width="6" height="22" rx="1" fill="#8B5E3C"/>
+  <rect x="116" y="78" width="6" height="14" rx="1" fill="#8B5E3C"/>
+  <!-- Headboard -->
+  <rect x="16" y="58" width="10" height="16" rx="2" fill="#A0724A"/>
+
+  <!-- Pillow -->
+  <rect x="24" y="62" width="24" height="12" rx="4" fill="#e8dff0"/>
+  <rect x="26" y="64" width="20" height="8" rx="3" fill="#f0eaf5"/>
+
+  <!-- Blanket -->
+  <rect x="28" y="68" width="86" height="18" rx="3" fill="#7c5cbf"/>
+  <rect x="28" y="68" width="86" height="4" rx="2" fill="#9171d1"/>
+  <!-- Blanket pattern -->
+  <rect x="40" y="72" width="4" height="2" fill="#9171d1" opacity=".5"/>
+  <rect x="56" y="74" width="4" height="2" fill="#9171d1" opacity=".5"/>
+  <rect x="72" y="72" width="4" height="2" fill="#9171d1" opacity=".5"/>
+  <rect x="88" y="74" width="4" height="2" fill="#9171d1" opacity=".5"/>
+  <rect x="100" y="72" width="4" height="2" fill="#9171d1" opacity=".5"/>
+
+  <!-- Bear body under blanket (slight lump) -->
+  <ellipse cx="70" cy="66" rx="30" ry="8" fill="#c49a6c"/>
+
+  <!-- Bear head on pillow -->
+  <ellipse cx="38" cy="58" rx="14" ry="12" fill="#c49a6c"/>
+  <!-- Inner ears -->
+  <ellipse cx="28" cy="48" rx="5" ry="5" fill="#c49a6c"/>
+  <ellipse cx="48" cy="48" rx="5" ry="5" fill="#c49a6c"/>
+  <ellipse cx="28" cy="48" rx="3" ry="3" fill="#e8b88a"/>
+  <ellipse cx="48" cy="48" rx="3" ry="3" fill="#e8b88a"/>
+
+  <!-- Nightcap -->
+  <path d="M30,50 Q38,28 52,42 L46,50 Z" fill="#ff6b8a"/>
+  <rect x="28" y="49" width="22" height="4" rx="2" fill="#ff8fa8"/>
+  <!-- Pompom -->
+  <circle cx="52" cy="41" r="3" fill="#fff" opacity=".9"/>
+
+  <!-- Bear face -->
+  <!-- Closed eyes (sleeping) -->
+  <path d="M32,56 Q34,58 36,56" stroke="#5a3a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M40,56 Q42,58 44,56" stroke="#5a3a1a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <ellipse cx="38" cy="60" rx="3" ry="2" fill="#5a3a1a"/>
+  <!-- Blush -->
+  <circle cx="30" cy="59" r="2.5" fill="#ff8fa8" opacity=".4"/>
+  <circle cx="46" cy="59" r="2.5" fill="#ff8fa8" opacity=".4"/>
+  <!-- Tiny smile -->
+  <path d="M36,62 Q38,64 40,62" stroke="#5a3a1a" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+  <!-- Alarm clock -->
+  <circle cx="135" cy="76" r="10" fill="#ff5252"/>
+  <circle cx="135" cy="76" r="8" fill="#ff7070"/>
+  <circle cx="135" cy="76" r="7" fill="#ffe8e8"/>
+  <!-- Clock face -->
+  <circle cx="135" cy="76" r="6.5" fill="#fff"/>
+  <!-- Hour marks -->
+  <rect x="134.5" y="70" width="1" height="2" fill="#333"/>
+  <rect x="134.5" y="81" width="1" height="2" fill="#333"/>
+  <rect x="140" y="75.5" width="2" height="1" fill="#333"/>
+  <rect x="128" y="75.5" width="2" height="1" fill="#333"/>
+  <!-- Hands -->
+  <line x1="135" y1="76" x2="135" y2="72" stroke="#333" stroke-width="1" stroke-linecap="round"/>
+  <line x1="135" y1="76" x2="138" y2="74" stroke="#ff5252" stroke-width="0.8" stroke-linecap="round"/>
+  <!-- Bells -->
+  <circle cx="130" cy="67" r="3" fill="#ffd700"/>
+  <circle cx="140" cy="67" r="3" fill="#ffd700"/>
+  <!-- Bell connector -->
+  <rect x="129" y="68" width="12" height="2" rx="1" fill="#bbb"/>
+  <!-- Legs -->
+  <rect x="131" y="85" width="2" height="4" rx="1" fill="#bbb"/>
+  <rect x="137" y="85" width="2" height="4" rx="1" fill="#bbb"/>
+
+  <!-- Floor -->
+  <rect x="0" y="90" width="160" height="30" fill="#1a1040"/>
+
+  <!-- "SNOOZE" text -->
+  <text x="80" y="108" font-family="monospace" font-size="12" fill="#ffe066" text-anchor="middle" font-weight="bold" letter-spacing="2">SNOOZE</text>
+</svg>
