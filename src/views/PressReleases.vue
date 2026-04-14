@@ -1,52 +1,88 @@
 <template>
-  <div class="press-releases">
-    <header class="press-header">
-      <div class="container">
-        <div class="header-content">
-          <router-link to="/" class="back-link">← Back to Home</router-link>
-          <div class="logo-section">
-            <img src="@/assets/images/logo.png" alt="Faucet Boat Games" 
-                 onerror="this.src='https://placehold.co/60x60/1A237E/ffffff?text=FBG'">
-            <div>
-              <h1>📰 Press Releases</h1>
-              <p class="subtitle">Latest news and announcements from Faucet Boat Games</p>
-            </div>
+  <div class="min-h-screen bg-[--color-bg-deep]">
+    <!-- Header -->
+    <header class="py-8 border-b border-[--color-border]">
+      <div class="max-w-[1000px] mx-auto px-4">
+        <router-link
+          to="/"
+          class="font-[--font-mono] text-[--color-text-muted] text-sm hover:text-[--color-phosphor] transition-colors inline-flex items-center gap-1 mb-6 block"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" />
+          </svg>
+          Back to Home
+        </router-link>
+        <div class="flex items-center gap-4">
+          <img
+            src="@/assets/images/logo.png"
+            alt="FBG"
+            class="w-12 h-12 opacity-80"
+            onerror="this.style.display='none'"
+          >
+          <div>
+            <h1 class="font-[--font-pixel] text-[--color-amber] text-base sm:text-lg leading-relaxed"
+                style="text-shadow: 0 0 12px rgba(255, 179, 0, 0.3);">
+              UPDATES
+            </h1>
+            <p class="font-[--font-mono] text-[--color-text-muted] text-sm mt-1">
+              News, announcements, and dev logs from Faucet Boat Games
+            </p>
           </div>
         </div>
       </div>
     </header>
-    
-    <main class="press-content">
-      <div class="container">
-        <div class="releases-list">
-          <div 
-            v-for="(release, index) in pressReleaseStore.getPublishedReleases" 
-            :key="release.id" 
-            class="release-item"
-            :class="{ 'expanded': expandedReleases.has(release.id) }"
+
+    <!-- Content -->
+    <main class="py-8">
+      <div class="max-w-[1000px] mx-auto px-4 space-y-6">
+        <div
+          v-for="release in pressReleaseStore.getPublishedReleases"
+          :key="release.id"
+          class="bg-[--color-bg-surface] border rounded-lg overflow-hidden transition-all duration-300"
+          :class="expandedReleases.has(release.id)
+            ? 'border-[--color-amber]/40 shadow-[0_0_15px_rgba(255,179,0,0.1)]'
+            : 'border-[--color-border] hover:border-[--color-border] hover:translate-y-[-2px]'"
+        >
+          <!-- Release header (clickable) -->
+          <div
+            class="p-6 cursor-pointer hover:bg-white/[0.02] transition-colors"
+            @click="toggleRelease(release.id)"
           >
-            <div class="release-header" @click="toggleRelease(release.id)">
-              <div class="release-meta">
-                <div class="release-date">📅 {{ formatDate(release.date) }}</div>
-                <div v-if="release.featured" class="featured-badge">⭐ Featured</div>
-              </div>
-              <h2 class="release-title">{{ release.title }}</h2>
-              <p v-if="release.summary" class="release-summary">{{ release.summary }}</p>
-              <div class="expand-indicator">
-                <span v-if="expandedReleases.has(release.id)">▼ Collapse</span>
-                <span v-else>▶ Read Full Release</span>
-              </div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="font-[--font-mono] text-[--color-amber] text-sm">
+                [{{ formatDate(release.date) }}]
+              </span>
+              <Badge
+                v-if="release.featured"
+                class="bg-[--color-amber]/15 text-[--color-amber] border-[--color-amber]/30 font-[--font-mono] text-[10px]"
+              >
+                FEATURED
+              </Badge>
             </div>
-            
-            <div v-if="expandedReleases.has(release.id)" class="release-content">
-              <div class="content-wrapper" v-html="formatContent(release.content)"></div>
-            </div>
+            <h2 class="font-[--font-body] text-[--color-text] text-xl font-bold mb-2 leading-snug">
+              {{ release.title }}
+            </h2>
+            <p v-if="release.summary" class="text-[--color-text-muted] text-sm leading-relaxed mb-3">
+              {{ release.summary }}
+            </p>
+            <span class="font-[--font-mono] text-[--color-cyan] text-sm inline-flex items-center gap-1">
+              <span v-if="expandedReleases.has(release.id)">&#9660; Collapse</span>
+              <span v-else>&#9654; Read Full Release</span>
+            </span>
           </div>
+
+          <!-- Expanded content -->
+          <div
+            v-if="expandedReleases.has(release.id)"
+            class="border-t border-[--color-border] p-6 release-content"
+            v-html="formatContent(release.content)"
+          />
         </div>
-        
-        <div v-if="pressReleaseStore.getPublishedReleases.length === 0" class="no-releases">
-          <h2>🔄 More news coming soon!</h2>
-          <p>We're working on exciting updates. Check back later for the latest announcements.</p>
+
+        <!-- Empty state -->
+        <div v-if="pressReleaseStore.getPublishedReleases.length === 0" class="text-center py-16">
+          <h2 class="font-[--font-pixel] text-[--color-text-muted] text-sm mb-3">NO RELEASES YET</h2>
+          <p class="font-[--font-mono] text-[--color-text-muted] text-sm">Check back soon for updates.</p>
         </div>
       </div>
     </main>
@@ -56,22 +92,20 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { usePressReleaseStore } from '@/stores/pressReleaseStore'
+import { Badge } from '@/components/ui/badge'
 
 const pressReleaseStore = usePressReleaseStore()
 const expandedReleases = ref<Set<string>>(new Set())
 
 onMounted(async () => {
-  // Load press releases from markdown files
   await pressReleaseStore.loadReleases()
-  
-  // Auto-expand the first (latest) release
   const latestRelease = pressReleaseStore.getLatestRelease
   if (latestRelease) {
     expandedReleases.value.add(latestRelease.id)
   }
 })
 
-const toggleRelease = (releaseId: string) => {
+function toggleRelease(releaseId: string) {
   if (expandedReleases.value.has(releaseId)) {
     expandedReleases.value.delete(releaseId)
   } else {
@@ -79,23 +113,19 @@ const toggleRelease = (releaseId: string) => {
   }
 }
 
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
+function formatDate(dateString: string) {
+  const d = new Date(dateString)
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
 }
 
-const formatContent = (content: string) => {
-  // Convert markdown-style formatting to HTML
+function formatContent(content: string) {
   return content
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="press-link">$1</a>')
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
     .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-    .replace(/👉 (.*$)/gim, '<div class="call-to-action">👉 $1</div>')
+    .replace(/👉 (.*$)/gim, '<div class="call-to-action">$1</div>')
     .replace(/\n\n/g, '</p><p>')
     .replace(/^(.*)$/gim, '<p>$1</p>')
     .replace(/<p><h([1-6])>/g, '<h$1>')
@@ -105,249 +135,58 @@ const formatContent = (content: string) => {
 }
 </script>
 
-<style scoped lang="scss">
-.press-releases {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1A237E 0%, #3949AB 50%, #5E35B1 100%);
-  color: var(--color-text, white);
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.press-header {
-  padding: 2rem 0;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-  
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .back-link {
-    color: var(--color-secondary, #B39DDB);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: var(--color-accent, #7C4DFF);
-    }
-  }
-  
-  .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    
-    img {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
-    }
-    
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .subtitle {
-      margin: 0.5rem 0 0 0;
-      opacity: 0.8;
-      font-size: 1.1rem;
-    }
-  }
-}
-
-.press-content {
-  padding: 3rem 0;
-}
-
-.releases-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.release-item {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  }
-  
-  &.expanded {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--color-accent, #7C4DFF);
-  }
-}
-
-.release-header {
-  padding: 2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  
-  &:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  .release-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    
-    .release-date {
-      color: var(--color-secondary, #B39DDB);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-    
-    .featured-badge {
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      color: #1A237E;
-      padding: 0.25rem 0.75rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      animation: pulse 2s infinite;
-    }
-  }
-  
-  .release-title {
-    margin: 0 0 1rem 0;
-    font-size: 1.5rem;
-    line-height: 1.3;
-  }
-  
-  .release-summary {
-    margin: 0 0 1rem 0;
-    opacity: 0.8;
-    line-height: 1.5;
-  }
-  
-  .expand-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-accent, #7C4DFF);
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-}
-
+<style>
 .release-content {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  
-  .content-wrapper {
-    padding: 2rem;
-    line-height: 1.7;
-    
-    :deep(h1) {
-      color: #FFD700;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-    
-    :deep(h2) {
-      color: var(--color-secondary, #B39DDB);
-      margin: 2rem 0 1rem 0;
-      font-size: 1.4rem;
-    }
-    
-    :deep(p) {
-      margin-bottom: 1rem;
-    }
-    
-    :deep(.call-to-action) {
-      background: rgba(124, 77, 255, 0.2);
-      border-left: 4px solid var(--color-accent, #7C4DFF);
-      padding: 1rem;
-      margin: 1.5rem 0;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-    
-    :deep(strong) {
-      color: #FFD700;
-    }
-    
-    :deep(em) {
-      color: var(--color-secondary, #B39DDB);
-    }
-    
-    :deep(.press-link) {
-      color: var(--color-accent, #7C4DFF);
-      text-decoration: underline;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      
-      &:hover {
-        color: #FFD700;
-      }
-    }
-  }
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--color-text-muted);
 }
 
-.no-releases {
-  text-align: center;
-  padding: 4rem 2rem;
-  
-  h2 {
-    color: var(--color-secondary, #B39DDB);
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    opacity: 0.8;
-  }
+.release-content h1 {
+  font-family: var(--font-pixel);
+  color: var(--color-amber);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
+.release-content h2 {
+  font-family: var(--font-body);
+  color: var(--color-cyan);
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+  font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .press-header .logo-section {
-    flex-direction: column;
-    text-align: center;
-    
-    h1 {
-      font-size: 2rem;
-    }
-  }
-  
-  .release-header {
-    padding: 1.5rem;
-    
-    .release-title {
-      font-size: 1.3rem;
-    }
-  }
-  
-  .release-content .content-wrapper {
-    padding: 1.5rem;
-  }
+.release-content p {
+  margin-bottom: 0.75rem;
+}
+
+.release-content strong {
+  color: var(--color-amber);
+}
+
+.release-content em {
+  color: var(--color-cyan);
+}
+
+.release-content .press-link {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.release-content .press-link:hover {
+  color: var(--color-phosphor);
+}
+
+.release-content .call-to-action {
+  background: rgba(0, 240, 255, 0.05);
+  border-left: 3px solid var(--color-cyan);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+  font-family: var(--font-mono);
 }
 </style>

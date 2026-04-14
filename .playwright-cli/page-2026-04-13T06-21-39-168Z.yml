@@ -1,0 +1,178 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "FBG" [ref=e6] [cursor=pointer]:
+        - /url: "#hero"
+      - generic [ref=e7]:
+        - link "WakeWeaver" [ref=e8] [cursor=pointer]:
+          - /url: "#wakeweaver"
+        - link "Games" [ref=e9] [cursor=pointer]:
+          - /url: "#games"
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: "#about"
+        - link "Updates" [ref=e11] [cursor=pointer]:
+          - /url: "#/press-releases"
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e77]:
+          - img "Faucet Boat Games" [ref=e80]
+          - heading "FAUCET BOAT GAMES" [level=1] [ref=e81]
+          - paragraph [ref=e86]: Games built by AI. Played by
+          - generic [ref=e90]: PRESS START
+        - generic [ref=e94]:
+          - generic [ref=e95]: scroll
+          - img [ref=e96]
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - heading "WAKEWEAVER" [level=2] [ref=e102]
+          - generic [ref=e104]: COMING SOON
+        - generic [ref=e106]:
+          - generic [ref=e124]:
+            - img [ref=e125]
+            - img [ref=e127]
+          - generic [ref=e149]:
+            - generic [ref=e150]: CAPTAIN WAKE
+            - paragraph [ref=e151]: Yo! Welcome to the open waters! I'm Captain Wake — I build games out here on the waves.
+            - generic [ref=e152] [cursor=pointer]: ▼ NEXT
+        - link "EARLY ACCESS" [ref=e154] [cursor=pointer]:
+          - /url: https://build.faucetboatgames.com
+          - generic [ref=e155]: EARLY ACCESS
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - generic [ref=e160]: // on our radar
+          - heading "NOW PLAYING" [level=2] [ref=e161]
+        - generic [ref=e164]:
+          - generic [ref=e170]:
+            - generic [ref=e171]: SOUL RANGER
+            - generic [ref=e172]: The Abyss Awaits
+          - link "Check it out" [ref=e174] [cursor=pointer]:
+            - /url: https://donatesouls.com
+            - text: Check it out
+            - img [ref=e175]
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - generic [ref=e182]: // what we've built
+          - heading "OUR GAMES" [level=2] [ref=e183]
+        - generic [ref=e185]:
+          - button "All" [ref=e186]
+          - button "Live" [ref=e187]
+          - button "In Dev" [ref=e188]
+        - generic [ref=e189]:
+          - link "Snooze Snooze Web PC Mobile LIVE" [ref=e191] [cursor=pointer]:
+            - /url: https://snooze.faucetboatgames.com
+            - generic [ref=e194]:
+              - img "Snooze" [ref=e195]
+              - generic [ref=e197]:
+                - heading "Snooze" [level=3] [ref=e198]
+                - generic [ref=e199]:
+                  - generic [ref=e200]: Web
+                  - generic [ref=e201]: PC
+                  - generic [ref=e202]: Mobile
+              - generic [ref=e203]: LIVE
+          - link "Rhythm Raiders Rhythm Raiders Web PC Console LIVE" [ref=e205] [cursor=pointer]:
+            - /url: https://rhythm-raiders.faucetboatgames.com
+            - generic [ref=e208]:
+              - img "Rhythm Raiders" [ref=e209]
+              - generic [ref=e211]:
+                - heading "Rhythm Raiders" [level=3] [ref=e212]
+                - generic [ref=e213]:
+                  - generic [ref=e214]: Web
+                  - generic [ref=e215]: PC
+                  - generic [ref=e216]: Console
+              - generic [ref=e217]: LIVE
+          - generic [ref=e221]:
+            - img "Neon Shadows" [ref=e222]
+            - generic [ref=e224]:
+              - heading "Neon Shadows" [level=3] [ref=e225]
+              - generic [ref=e226]:
+                - generic [ref=e227]: PC
+                - generic [ref=e228]: Console
+            - generic [ref=e229]: DEV
+        - generic [ref=e230]:
+          - heading "ON OUR RADAR" [level=3] [ref=e233]
+          - generic [ref=e235]:
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - generic [ref=e238]: Cosmic Voyager
+                - generic [ref=e239]: Space Sim · Adventure
+              - generic [ref=e240]: 2025 Q4
+            - generic [ref=e241]:
+              - generic [ref=e242]:
+                - generic [ref=e243]: Forest Keepers
+                - generic [ref=e244]: Simulation · Management
+              - generic [ref=e245]: 2026 Q1
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - generic [ref=e248]: Quantum Dreams
+                - generic [ref=e249]: Puzzle · Sci-Fi
+              - generic [ref=e250]: 2026 Q2
+            - generic [ref=e251]:
+              - generic [ref=e252]:
+                - generic [ref=e253]: Mythic Legends
+                - generic [ref=e254]: RPG · Strategy
+              - generic [ref=e255]: 2026 Q3
+            - generic [ref=e256]:
+              - generic [ref=e257]:
+                - generic [ref=e258]: Velocity Drift
+                - generic [ref=e259]: Racing · Arcade
+              - generic [ref=e260]: 2026 Q4
+            - generic [ref=e261]:
+              - generic [ref=e262]:
+                - generic [ref=e263]: Tiny Titans
+                - generic [ref=e264]: Simulation · Strategy
+              - generic [ref=e265]: 2027 Q1
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - generic [ref=e271]: // latest
+            - heading "UPDATES" [level=2] [ref=e272]
+          - link "View All" [ref=e273] [cursor=pointer]:
+            - /url: "#/press-releases"
+            - text: View All
+            - img [ref=e274]
+        - generic [ref=e276]:
+          - generic [ref=e277]: "[2025.08.21]"
+          - 'heading "Faucet Boat Games Unleashes Snooze: The World''s Sleepiest Thriller" [level=3] [ref=e278]'
+          - paragraph [ref=e279]: "Today, the AI-fueled indie dream factory Faucet Boat Games (FBG) proudly launches its second official title: Snooze – the only game brave enough to as..."
+          - link "Read Full Release" [ref=e280] [cursor=pointer]:
+            - /url: "#/press-releases"
+            - text: Read Full Release
+            - img [ref=e281]
+      - generic [ref=e285]:
+        - generic [ref=e286]:
+          - generic [ref=e287]: "- ABOUT -"
+          - heading "WHO WE ARE" [level=2] [ref=e288]
+        - generic [ref=e295]:
+          - paragraph [ref=e296]: We're an AI-powered indie game studio.
+          - paragraph [ref=e297]: Our AI agents design, build, and ship games. We set the direction. They write the code.
+          - generic [ref=e300]: FULLY AUTONOMOUS
+        - generic [ref=e302]:
+          - generic [ref=e303]: POWER-UPS EQUIPPED
+          - generic [ref=e304]:
+            - generic [ref=e305]:
+              - generic [ref=e307]: ">>"
+              - heading "INNOVATION" [level=3] [ref=e308]
+              - paragraph [ref=e311]: Fresh ideas, wild mechanics. AI lets us explore faster than ever.
+            - generic [ref=e312]:
+              - generic [ref=e314]: "[]"
+              - heading "QUALITY" [level=3] [ref=e315]
+              - paragraph [ref=e318]: Polished games that respect players. Every spec tested, every deploy verified.
+            - generic [ref=e319]:
+              - generic [ref=e321]: <>
+              - heading "COMMUNITY" [level=3] [ref=e322]
+              - paragraph [ref=e325]: Built with players in mind. Your feedback shapes what we ship next.
+  - contentinfo [ref=e326]:
+    - generic [ref=e327]:
+      - generic [ref=e328]:
+        - generic [ref=e329]:
+          - img "FBG" [ref=e330]
+          - generic [ref=e331]: FAUCET BOAT GAMES
+        - generic [ref=e332]:
+          - link "Updates" [ref=e333] [cursor=pointer]:
+            - /url: "#/press-releases"
+          - link "WakeWeaver" [ref=e334] [cursor=pointer]:
+            - /url: https://build.faucetboatgames.com
+      - paragraph [ref=e336]: © 2026 Faucet Boat Games. Built by AI agents.
+  - region "Notifications alt+T":
+    - list
